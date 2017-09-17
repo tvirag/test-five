@@ -7,8 +7,8 @@ const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 require('dotenv').config();
 
 module.exports = () => {
-    const isProd = process.env.IS_PROD == 'true';
-    console.log('ENV PROD: ' + isProd);
+    const isProd = process.env.ENV == 'production';
+    console.log(`ENV: ${process.env.ENV}`);
 
 
     const config = {
