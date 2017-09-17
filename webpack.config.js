@@ -4,7 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CommonChunksPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const del = require('del');
+
 require('dotenv').config();
+
+del.sync("dist/**");
 
 module.exports = () => {
     const isProd = process.env.ENV == 'production';
