@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CommonChunksPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+
 const del = require('del');
 
 require('dotenv').config();
@@ -19,6 +21,7 @@ module.exports = () => {
         resolve: { extensions: ['.ts', '.js'] },
         entry: {
             app: './src/main.ts',
+            vendor: './src/vendor.ts',
             polyfills: './src/polyfills.ts'
         },
         output: {
@@ -28,10 +31,16 @@ module.exports = () => {
         module: {
             rules: [
                 { test: /\.ts$/, use: isProd ? '@ngtools/webpack' : ['awesome-typescript-loader?slient=true', 'angular2-template-loader'] },
-                { test: /\.html$/, use: 'html-loader?minimize=false' }
+                { test: /\.html$/, use: 'html-loader?minimize=false' },
+                { test: /\.css$/, use: [ 'style-loader', 'css-loader' ]},
+                { test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/, loader: 'file-loader?name=assets/[name].[hash].[ext]' }                
             ]
         },
         plugins: [
+            new ProvidePlugin({
+                $: "jquery",
+                jQuery: "jquery"
+            }),             
             new HtmlWebpackPlugin({
                 filename: __dirname + '/dist/index.html',
                 template: __dirname + '/src/index.html'
@@ -47,7 +56,7 @@ module.exports = () => {
             )]:
             [
                 new CommonChunksPlugin({
-                    names: ['app', 'polyfills']
+                    names: ['app', 'vendor', 'polyfills']
                 }),                
                 new UglifyJsPlugin(),
                 new AotPlugin({

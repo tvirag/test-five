@@ -1,1 +1,18 @@
-Hello World!
+<style>
+    h1 {text-align: center; }
+    p {text-align: center; }
+    table {margin: 0 auto; }
+</style>
+
+<h1>Sample</h1>
+
+<modal-outlet></modal-outlet>
+
+<table>
+    <tr>
+        <th><button (click)="open('first')" class="btn btn-sm btn-primary">Open First</button></th>
+        <th><button (click)="open('second')" class="btn btn-sm btn-primary">Open Second</button></th>
+        <th><button (click)="open('third')" class="btn btn-sm btn-primary">Open Third</button></th>
+    </tr>
+</table>
+
