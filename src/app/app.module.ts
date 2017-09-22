@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import { ModalModule, Modal } from 'ng-bootstrap-modal';
-import { FirstModalComponent } from "./first-modal.component";
-import { SecondModalComponent } from './second-modal.component.';
-import { ThirdModalComponent } from './third-modal.component';
+import { ScheduleModalComponent } from "./schedule-modal.component";
+import { TasksModalComponent } from './tasks-modal.component.';
+import { AssigneesModalComponent } from './assignees-modal.component';
 
 
 const modals: Modal[] = [
-  { name: 'first', component: FirstModalComponent},
-  { name: 'second', component: SecondModalComponent},
-  { name: 'third', component: ThirdModalComponent}
+  { name: 'schedule', component: ScheduleModalComponent},
+  { name: 'tasks', component: TasksModalComponent},
+  { name: 'assignees', component: AssigneesModalComponent}
 ];
 
 @NgModule({
@@ -19,7 +19,8 @@ const modals: Modal[] = [
     BrowserModule,
     ModalModule.forRoot(modals)
   ],
-  declarations: [ AppComponent, FirstModalComponent, SecondModalComponent, ThirdModalComponent ],
-  bootstrap:    [ AppComponent ]
+  declarations: [ AppComponent, TasksModalComponent, AssigneesModalComponent, ScheduleModalComponent ],
+  bootstrap: [AppComponent]
+
 })
 export class AppModule { }

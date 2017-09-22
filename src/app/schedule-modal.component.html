@@ -1,0 +1,65 @@
+﻿<modal>
+
+    <div modal-title>Schedule</div>
+    <div modal-body>
+
+        <div class="panel panel-primary">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                Todo List
+            </div>
+            <div class="panel-body">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="true">
+                        Filter
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a (click)="filterOption='All'">All</a></li>
+                        <li><a (click)="filterOption='Complete'">Completed</a></li>
+                        <li><a (click)="filterOption='Incomplete'">Incomplete</a></li>
+                    </ul>
+                    <strong>{{ filterOption }}</strong>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Task</td>
+                    <td>Date Created</td>
+                    <td>Date Complete</td>
+                    <td>Days Taken</td>
+                    <td>Assignee</td>
+                    <td>Done?</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="8">
+                    </td>
+
+                </tr>
+            </tfoot>
+        </table>
+
+
+
+
+
+
+
+
+
+    </div>
+</modal>

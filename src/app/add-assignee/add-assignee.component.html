@@ -1,0 +1,18 @@
+<div class="panel panel-success">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Available Assignees</div>
+    <div class="panel-body">
+        <form [formGroup]="addAssigneeForm">
+            <div class="form-group">
+                <label for="assigneeName">Assignee Name*</label>
+                <input type="text" formControlName="name" class="form-control" id="assigneeName" placeholder="Min 2 chars" required minlength="2">
+            </div>
+            <button [disabled]="addAssigneeForm.invalid" type="submit" (click)="add(addAssigneeForm.value.name)" class="btn btn-md btn-primary">Add</button>
+        </form>        
+    </div>
+
+    <!-- List group -->
+    <ul class="list-group">
+        <li *ngFor="let assignee of assignees" class="list-group-item">{{assignee}}</li>
+    </ul>
+</div>

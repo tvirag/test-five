@@ -9,20 +9,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@angular/common": "^4.4.1",
-    "@angular/compiler": "^4.4.1",
-    "@angular/compiler-cli": "^4.4.1",
-    "@angular/core": "^4.4.1",
-    "@angular/platform-browser": "^4.4.1",
-    "@angular/platform-browser-dynamic": "^4.4.1",
-    "bootstrap": "^3.3.7",
-    "core-js": "^2.5.1",
-    "jquery": "^3.2.1",
-    "ng-bootstrap-modal": "0.0.4",
-    "rxjs": "^5.4.3",
-    "zone.js": "^0.8.17"
-  },
+
   "devDependencies": {
     "@ngtools/webpack": "^1.7.1",
     "@types/node": "^8.0.28",
@@ -38,5 +25,22 @@
     "typescript": "^2.5.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
+  },
+  "dependencies": {
+    "@angular/common": "^4.4.1",
+    "@angular/compiler": "^4.4.1",
+    "@angular/compiler-cli": "^4.4.1",
+    "@angular/core": "^4.4.1",
+    "@angular/forms": "^4.1.2",
+    "@angular/platform-browser": "^4.4.1",
+    "@angular/platform-browser-dynamic": "^4.4.1",
+    "@angular/router": "4.1.2",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.5.1",
+    "jquery": "^3.2.1",
+    "ng-bootstrap-modal": "0.0.4",
+    "rxjs": "^5.4.3",
+    "zone.js": "^0.8.17"
   }
 }
+  
