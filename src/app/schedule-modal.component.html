@@ -61,7 +61,7 @@
                 
                 <tr>
                     <td colspan="8">
-                            <form [formGroup]="addTaskForm" class="form-inline">
+                            <form class="form-inline">
                                 <table class="">
                                     <tbody>
                                         <tr>
@@ -79,12 +79,31 @@
                                                                 <strong>{{ taskName }}</strong>
                                                             </div>
                                                         </div>
-                                                                
+
+                                                        <div class="form-group">
+
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="true">
+                                                                    Assign To
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                                    <li *ngFor="let assignee of assignees | async"><a (click)="selectAssignee(assignee)">{{assignee}}</a></li>
+                                                                </ul>
+                                                                <strong>{{ assigneeName }}</strong>
+                                                            </div>
+                                                        </div>
+
+                                                        <button [disabled]="taskName.length == 0 || assigneeName.length == 0" (click)="add(taskName, assigneeName)" class="btn btn-md btn-primary">Add</button>
+                                                        
+                
                                             </td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                </table>    
                             </form>
+
                     </td>
 
                 </tr>

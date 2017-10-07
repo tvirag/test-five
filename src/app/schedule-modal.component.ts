@@ -24,7 +24,7 @@ export class ScheduleModalComponent {
     assigneeName: string;
     taskName: string;
 
-    constructor() { 
+    constructor(private todoService: TodoService,private taskService: TaskService,private assigneeService: AssigneeService,private formBuilder: FormBuilder) { 
         this.todos = [];
 
    
@@ -55,7 +55,14 @@ export class ScheduleModalComponent {
               assignee: "Me",
               done: false
           });
-  
+
+          this.tasks = this.taskService.tasks$;
+          this.assignees = this.assigneeService.assignees$;
+          this.addTaskForm = this.initForm2();
+          
+          
+
+
     }
 
     complete (todo: Todo) {
@@ -79,4 +86,31 @@ export class ScheduleModalComponent {
         return this.todos.find(t=>t.id == id);
     }
 
+    initForm1() {
+        this.assigneeName = '';
+       return this.formBuilder.group({
+         name: ['']
+       });
+      }
+    
+    initForm2() {
+        this.taskName = '';
+       return this.formBuilder.group({
+         name: ['']
+       });
+      }
+ 
+      add (taskName: string, assigneeName: string) {
+        this.todoService.addByName(taskName, assigneeName);
+        this.addTaskForm = this.initForm1(),this.initForm2();
+      }
+    
+      selectTask(name: string) {
+        this.taskName = name;
+     }
+     selectAssignee(name: string) {
+        this.assigneeName = name;
+     }
+   
+     
 }

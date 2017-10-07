@@ -48,8 +48,6 @@ export class TodoListComponent {
      this.taskName = name;
   }
 
-
-
    add (taskName: string, assigneeName: string) {
     this.todoService.addByName(taskName, assigneeName);
     this.addTaskForm = this.initForm1(),this.initForm2();
