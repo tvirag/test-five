@@ -42,7 +42,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of todos">
+                <tr *ngFor="let item of todos | filter: filterOption">
                     <td>{{ item.id }}</td>
                     <td>{{ item.name }}</td>
                     <td>{{ item.dateCreated | date: 'yyyy-MMM-dd' }}</td>
@@ -58,58 +58,37 @@
 
             </tbody>
             <tfoot>
-<!--                
+                
                 <tr>
                     <td colspan="8">
-                        <form [formGroup]="addTaskForm" class="form-inline">
-                            <table class="">
-                                <tbody>
-                                <tr>
-                                    <td>
-
-                                        <div class="form-group">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="true">
-                                                    Task
-                                                    <span class="caret"></span>
-                                                </button>
-
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                                    <li *ngFor="let task of tasks | async"><a (click)="selectTask(task)">{{task}}</a></li>
-                                                </ul>
-                                                <strong>{{ taskName }}</strong>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="dropdown">
-                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="true">
-                                                    Assign To
-                                                    <span class="caret"></span>
-                                                </button>
-                                                
-                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                    <li *ngFor="let assignee of assignees | async"><a (click)="selectAssignee(assignee)">{{assignee}}</a></li>
-                                                </ul>
-                                                <strong>{{ assigneeName }}</strong>
-
-                                            </div>
-                                        </div>
-
-                                        <button [disabled]="taskName.length == 0 || assigneeName.length == 0" (click)="add(taskName, assigneeName)" class="btn btn-md btn-primary">Add</button>
-
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </form>
+                            <form [formGroup]="addTaskForm" class="form-inline">
+                                <table class="">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                    <div class="form-group">
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="true">
+                                                                    Task
+                                                                    <span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                                                    <li *ngFor="let task of tasks | async"><a (click)="selectTask(task)">{{task}}</a></li>
+                                                                </ul>
+                                                                <strong>{{ taskName }}</strong>
+                                                            </div>
+                                                        </div>
+                                                                
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
                     </td>
 
                 </tr>
--->
+
             </tfoot>
         </table>
 
